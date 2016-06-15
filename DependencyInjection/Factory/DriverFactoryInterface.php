@@ -11,14 +11,18 @@
  * @copyright 2016 Sourcefabric z.ú.
  * @license http://www.superdesk.org/license
  */
-namespace SWP\Component\Storage\Model;
+namespace SWP\Component\Storage\DependencyInjection\Factory;
 
-interface PersistableInterface
+use SWP\Component\Storage\DependencyInjection\Driver\PersistenceDriverInterface;
+
+interface DriverFactoryInterface
 {
     /**
-     * Gets identifier.
+     * Creates a new instance of driver.
      *
-     * @return string|int
+     * @param string $type
+     *
+     * @return PersistenceDriverInterface
      */
-    public function getId();
+    public static function createDriver($type);
 }
